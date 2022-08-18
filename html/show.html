@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+<!--    <link rel="stylesheet" type="text/css" href="show.css"/>-->
+</head>
+
+<body>
+<h1>Profile</h1>
+
+<img src="{{.profile}}" id="image-preview" width="400" height="300">
+<form action="http://127.0.0.1:8080/api/user/prof?username={{.username}}&&nickname={{.nickname}}" method="post"
+      enctype="multipart/form-data" name="pic" onsubmit="return checkpic()">
+    <input type="file" id="file" name="file"> <input type="submit" value="上传">
+</form>
+
+<h1>username</h1>
+<p>{{.username}}</p>
+
+<h1>Nickname</h1>
+<form action="http://127.0.0.1:8080/api/user/nick?username={{.username}}&&profile={{.profile}}" method="post"
+      enctype="multipart/form-data" name="nic" onsubmit="return checknic()">
+    <input type="text" name="nickname" value="{{.nickname}}"> <input type="submit" value="修改">
+</form>
+
+<script type="text/javascript">
+    let fileInput = document.getElementById('file');
+    let preview = document.getElementById('image-preview');
+    let upload = document.getElementById('image')
+    // 监听change事件:
+    fileInput.addEventListener('change', function() {
+        // 清除背景图片:
+        preview.style.backgroundImage = '';
+        let file = fileInput.files[0];
+        let size = file.size;
+        if (size >= 5 * 1024 * 1024) {
+            alert('文件大小超出限制');
+            return false;
+        }
+        // 读取文件:
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let data = e.target.result;
+            console.log(preview, 'A')
+            preview.src = data
+        };
+
+        // 以DataURL的形式读取文件:
+        reader.readAsDataURL(file);
+        upload.style.backgroundImage = ''
+
+    });
+    function checkpic(){
+        var fileInput = document.getElementById('file')
+        if(fileInput.value == ""){
+            alert("请选择上传文件!")
+            return false
+        }else{
+            return true
+        }
+    }
+    function checknic(){
+        if(nic.nickname.value == ""){
+            alert("请输入nic信息!")
+            return  false
+        } else if(nic.password.value == ""){
+            return true
+        }
+    }
+</script>
+
+</body>
+</html>

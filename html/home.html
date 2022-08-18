@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"用户登陆"</title>
+</head>
+<body>
+<h1>请输入用户账号和密码</h1>
+<form action="/api/user/login" method="post" enctype="multipart/form-data">
+    Username:<input type="text" name="username"><br>
+    Password:<input type="password" name="password"><br>
+    <input type="submit" value="Submit">
+</form>
+<script language="JavaScript">
+    function checkinput(){
+        if(form1.username.value == ""){
+            alert("请输入用户名")
+            return  false
+        } else if(form1.password.value == ""){
+            alert("密码不能为空")
+            return false
+        }
+        return true
+    }
+</script>
+
+</body>
+</html>
+
