@@ -1,0 +1,35 @@
+HTTPServer:
+  RunMode: debug
+  HttpPort: 8080
+  ReadTimeout: 60
+  WriteTimeout: 60
+HTTPLogger:
+  LogSavePath: ./storage/log
+  LogFileExt: .log
+  LogFileName: http
+TCPLogger:
+  LogSavePath: ./storage/log
+  LogFileExt: .log
+  LogFileName: tcp
+Upload:
+  UploadSavePath: storage/uploads
+  UploadServerUrl: http://127.0.0.1:8080/static
+  UploadImageMaxSize: 5
+JWT:
+  Secret: yangmingrun
+  Issuer: yangmingrun
+  Expire: 7200
+Database:
+  DBType: mysql
+  Username: root
+  Password: ymr2226722
+  Host: 127.0.0.1:3306
+  DBName: entryTask
+  Charset: utf8
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+Redis:
+  Host: 127.0.0.1:6379
+  Password:
+  DB: 0
