@@ -1,6 +1,6 @@
 # User management system
 ## 简介
-`eUser management system`实现一个用户管理系统，用户可以登录、拉取和编辑他们的profiles。
+`User management system`实现一个用户管理系统，用户可以登录、拉取和编辑他们的profiles。
 
 ## 文档
 你可以从 [EntryTask Report](https://docs.google.com/document/d/1gH2gl-HlCo6TcvrccGWOzt1Md9NvVZVu370W8cd5SgE/edit?usp=sharing#)中查阅以下内容:
